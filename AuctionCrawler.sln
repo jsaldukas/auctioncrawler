@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopartBot.ConsoleApp", "CopartBot.ConsoleApp\CopartBot.ConsoleApp.csproj", "{388E3059-6807-40F1-B3DA-86CAE75EB555}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionCrawler.ConsoleApp", "AuctionCrawler.ConsoleApp\AuctionCrawler.ConsoleApp.csproj", "{388E3059-6807-40F1-B3DA-86CAE75EB555}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
