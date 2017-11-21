@@ -14,15 +14,27 @@ namespace AuctionCrawler.ConsoleApp.Extensions
             wait.Until(driver1 => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
         }
         
-        public static void WaitForElement(this IWebDriver driver, By by, int timeoutSeconds = 30)
+        public static bool WaitForElement(this IWebDriver driver, By by, int timeoutSeconds = 30)
         {
             IWait<IWebDriver> wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutSeconds));
-            wait.Until(driver1 => driver1.FindElements(by).Any(x => x.Displayed));
+            return wait.Until(driver1 => driver1.FindElements(by).Any(x => x.Displayed));
         }
 
         public static void Sleep(this IWebDriver driver, int milliseconds)
         {
             Thread.Sleep(milliseconds);
+        }
+        
+        public static void ExecuteJs(this IWebDriver driver, string js, params object[] args)
+        {
+            IJavaScriptExecutor javaScriptExecutor = (IJavaScriptExecutor)driver;
+            javaScriptExecutor.ExecuteScript(js, args);
+        }
+
+        public static T ExecuteJsFunction<T>(this IWebDriver driver, string js, params object[] args)
+        {
+            IJavaScriptExecutor javaScriptExecutor = (IJavaScriptExecutor) driver;
+            return (T) javaScriptExecutor.ExecuteScript(js, args);
         }
     }
 }

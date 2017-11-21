@@ -17,22 +17,24 @@ namespace AuctionCrawler.ConsoleApp
     {
         static void Main(string[] args)
         {
-            var parameters = Args.Configuration.Configure<ProgramParameters>().CreateAndBind(args);
-            CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+            var auctionWatcher = new AuctionWatcher();
+            auctionWatcher.Run();
+            //var parameters = Args.Configuration.Configure<ProgramParameters>().CreateAndBind(args);
+            //CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
 
-            using (var carLotDataWriter = new CsvCarLotDataWriter("carlotdata.csv"))
-            {
-                var carLotWatcher = new CarLotWatcher(parameters.Urls.ToArray(), parameters.IntervalSeconds, carLotDataWriter, cancellationTokenSource.Token);
+            //using (var carLotDataWriter = new CsvCarLotDataWriter("carlotdata.csv"))
+            //{
+            //    var carLotWatcher = new CarLotWatcher(parameters.Urls.ToArray(), parameters.IntervalSeconds, carLotDataWriter, cancellationTokenSource.Token);
 
-                var task = Task.Run(() => carLotWatcher.Run());
+            //    var task = Task.Run(() => carLotWatcher.Run());
 
-                Console.WriteLine("Press any key to exit...");
-                Console.ReadLine();
-                cancellationTokenSource.Cancel();
+            //    Console.WriteLine("Press any key to exit...");
+            //    Console.ReadLine();
+            //    cancellationTokenSource.Cancel();
 
-                Console.WriteLine("Exiting...");
-                task.Wait(30000);
-            }
+            //    Console.WriteLine("Exiting...");
+            //    task.Wait(30000);
+            //}
         }
     }
 }

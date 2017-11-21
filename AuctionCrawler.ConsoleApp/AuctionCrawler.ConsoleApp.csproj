@@ -54,10 +54,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuctionWatcher.cs" />
     <Compile Include="CarLotWatcher.cs" />
     <Compile Include="Interfaces\ICarLotDataWriter.cs" />
     <Compile Include="Data\CarLotDataRow.cs" />
     <Compile Include="DataWriter\CsvCarLotDataWriter.cs" />
+    <Compile Include="PageElements\CarAuctionPage.cs" />
     <Compile Include="PageElements\CarLotTimeLeft.cs" />
     <Compile Include="PageElements\CarLotPage.cs" />
     <Compile Include="Program.cs" />
